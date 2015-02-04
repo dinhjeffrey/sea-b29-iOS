@@ -9,10 +9,13 @@
 #import "MapViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "AddReminderViewController.h"
 
 @interface MapViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong,nonatomic) CLLocationManager *locationManager;
+
+@property (strong,nonatomic) MKPointAnnotation *selectedAnnotation;
 
 @end
 
@@ -20,6 +23,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderAdded:) name:@"ReminderAdded" object:nil];
+  
+  
   self.locationManager = [[CLLocationManager alloc] init];
   self.locationManager.delegate = self;
   self.mapView.delegate = self;
@@ -60,6 +67,25 @@
 //  NSLog(@"The title of this view controller is %@ and my number is %li ",self.title, (long)myInt);
 //  
  
+}
+
+-(void) reminderAdded:(NSNotification *)notification {
+  NSLog(@"reminder notification");
+  NSDictionary *userInfo = notification.userInfo;
+  CLCircularRegion *region = userInfo[@"reminder"];
+  NSString *notificationName = notification.name;
+  
+  MKCircle *circleOverlay = [MKCircle circleWithCenterCoordinate:region.center radius:region.radius];
+
+  [self.mapView addOverlay:circleOverlay];
+}
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+  MKCircleRenderer *circleRenderer = [[MKCircleRenderer alloc] initWithOverlay:overlay];
+  circleRenderer.fillColor = [UIColor blueColor];
+  circleRenderer.strokeColor = [UIColor redColor];
+  circleRenderer.alpha = 0.5;
+  return circleRenderer;
 }
 
 
@@ -105,11 +131,29 @@
 }
 
 -(void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control {
-  MKPointAnnotation *annotation = view.annotation;
+  self.selectedAnnotation = view.annotation;
   
   [self performSegueWithIdentifier:@"SHOW_DETAIL" sender:self];
   
   NSLog(@"button tapped");
+}
+
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+  NSLog(@"did enter region");
+  UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+  localNotification.alertBody = @"region entered!";
+  localNotification.alertAction = @"region action";
+  
+  [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
+    AddReminderViewController *addReminderVC = (AddReminderViewController *)segue.destinationViewController;
+    addReminderVC.annotation = self.selectedAnnotation;
+    addReminderVC.locationManager = self.locationManager;
+    
+  }
 }
 
 
@@ -120,6 +164,10 @@
 - (IBAction)buttonPressed:(id)sender {
   
   
+}
+
+-(void)dealloc {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
