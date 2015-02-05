@@ -25,6 +25,11 @@
   return YES;
 }
 
+-(void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+  //use this to notify the user of a local notification if your app is in the foreground.
+  
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
   NSLog(@"willResignActive");
   // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

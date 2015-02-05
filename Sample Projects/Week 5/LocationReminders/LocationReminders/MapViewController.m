@@ -17,6 +17,8 @@
 
 @property (strong,nonatomic) MKPointAnnotation *selectedAnnotation;
 
+//@property (weak,nonatomic) AddReminderViewController *addReminderVC;
+
 @end
 
 @implementation MapViewController
@@ -73,7 +75,7 @@
   NSLog(@"reminder notification");
   NSDictionary *userInfo = notification.userInfo;
   CLCircularRegion *region = userInfo[@"reminder"];
-  NSString *notificationName = notification.name;
+  //NSString *notificationName = notification.name;
   
   MKCircle *circleOverlay = [MKCircle circleWithCenterCoordinate:region.center radius:region.radius];
 
@@ -143,13 +145,15 @@
   UILocalNotification *localNotification = [[UILocalNotification alloc] init];
   localNotification.alertBody = @"region entered!";
   localNotification.alertAction = @"region action";
-  
+  //localNotification.fireDate = //some Date
   [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+  [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"SHOW_DETAIL"]) {
     AddReminderViewController *addReminderVC = (AddReminderViewController *)segue.destinationViewController;
+    //self.addReminderVC = addReminderVC;
     addReminderVC.annotation = self.selectedAnnotation;
     addReminderVC.locationManager = self.locationManager;
     
