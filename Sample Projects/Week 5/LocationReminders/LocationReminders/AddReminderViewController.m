@@ -21,7 +21,7 @@
 }
 - (IBAction)pressedAddReminderButton:(id)sender {
   if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
-    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:200 identifier:@"Reminder"];
+    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:200 identifier:@"Reminder23"];
     [self.locationManager startMonitoringForRegion:region];
     //[self.locationManager.monitoredRegions allObjects];
    // NSDictionary *userInfo = @{@"reminder" : region};

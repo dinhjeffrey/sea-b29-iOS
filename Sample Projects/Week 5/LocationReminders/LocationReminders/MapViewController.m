@@ -32,6 +32,7 @@
   self.locationManager = [[CLLocationManager alloc] init];
   self.locationManager.delegate = self;
   self.mapView.delegate = self;
+  NSLog(@" %lu",(unsigned long)self.locationManager.monitoredRegions.count);
 //  [self setLocationManager:[[CLLocationManager alloc] init]];
   
   if ([CLLocationManager locationServicesEnabled]) {
@@ -123,6 +124,10 @@
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+  
+  if ([annotation isEqual:[self.mapView userLocation]]) {
+    return nil;
+  }
   MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"AnnotationView"];
   annotationView.animatesDrop = true;
   annotationView.pinColor = MKPinAnnotationColorPurple;

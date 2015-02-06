@@ -40,6 +40,15 @@
     // Configure interface objects here.
 }
 
+-(id)contextForSegueWithIdentifier:(NSString *)segueIdentifier inTable:(WKInterfaceTable *)table rowIndex:(NSInteger)rowIndex {
+  NSLog(@"%ld",(long)rowIndex);
+  return nil;
+}
+
+-(void)table:(WKInterfaceTable *)table didSelectRowAtIndex:(NSInteger)rowIndex {
+  
+}
+
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
