@@ -9,6 +9,7 @@
 #import "HotelListViewController.h"
 #import "AppDelegate.h"
 #import "Hotel.h"
+#import "RoomListViewController.h"
 
 @interface HotelListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -23,7 +24,9 @@
   self.tableView.dataSource = self;
   AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
   NSManagedObjectContext *context = appDelegate.managedObjectContext;
-  
+//  NSManagedObjectModel *MOM = context.persistentStoreCoordinator.managedObjectModel;
+//  NSFetchRequest *fetchRequest = [MOM fetchRequestTemplateForName:@"HotelFetch"];
+
   NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Hotel"];
   //you could create a predicate here
   NSError *fetchError;
@@ -53,14 +56,13 @@
   return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"SHOW_ROOMS"]) {
+    RoomListViewController *destinationVC = segue.destinationViewController;
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    Hotel *hotel = self.hotels[indexPath.row];
+    destinationVC.selectedHotel = hotel;
+  }
 }
-*/
 
 @end

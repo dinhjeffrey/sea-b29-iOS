@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A29D4CAA1A8A754200DE398D /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A29D4CA91A8A754200DE398D /* RoomListViewController.m */; };
+		A29D4CAD1A8A7B2000DE398D /* AddReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A29D4CAC1A8A7B2000DE398D /* AddReservationViewController.m */; };
+		A29D4CE21A8A928200DE398D /* AvailabilityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A29D4CE11A8A928200DE398D /* AvailabilityViewController.m */; };
 		A2FA6CF81A8925D700018CF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FA6CF71A8925D700018CF7 /* main.m */; };
 		A2FA6CFB1A8925D700018CF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A2FA6CFA1A8925D700018CF7 /* AppDelegate.m */; };
 		A2FA6CFE1A8925D700018CF7 /* CoreDataHotel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2FA6CFC1A8925D700018CF7 /* CoreDataHotel.xcdatamodeld */; };
@@ -34,6 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A29D4CA81A8A754200DE398D /* RoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewController.h; sourceTree = "<group>"; };
+		A29D4CA91A8A754200DE398D /* RoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListViewController.m; sourceTree = "<group>"; };
+		A29D4CAB1A8A7B2000DE398D /* AddReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReservationViewController.h; sourceTree = "<group>"; };
+		A29D4CAC1A8A7B2000DE398D /* AddReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReservationViewController.m; sourceTree = "<group>"; };
+		A29D4CE01A8A928200DE398D /* AvailabilityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvailabilityViewController.h; sourceTree = "<group>"; };
+		A29D4CE11A8A928200DE398D /* AvailabilityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvailabilityViewController.m; sourceTree = "<group>"; };
 		A2FA6CF21A8925D700018CF7 /* CoreDataHotel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHotel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2FA6CF61A8925D700018CF7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2FA6CF71A8925D700018CF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,11 +114,17 @@
 				A2FA6CFF1A8925D700018CF7 /* ViewController.h */,
 				A2FA6D001A8925D700018CF7 /* ViewController.m */,
 				A2FA6D021A8925D700018CF7 /* Main.storyboard */,
+				A29D4CAB1A8A7B2000DE398D /* AddReservationViewController.h */,
+				A29D4CAC1A8A7B2000DE398D /* AddReservationViewController.m */,
 				A2FA6D051A8925D700018CF7 /* Images.xcassets */,
 				A2FA6D071A8925D700018CF7 /* LaunchScreen.xib */,
 				A2FA6CFC1A8925D700018CF7 /* CoreDataHotel.xcdatamodeld */,
 				A2FA6D2F1A89409E00018CF7 /* HotelListViewController.h */,
 				A2FA6D301A89409E00018CF7 /* HotelListViewController.m */,
+				A29D4CE01A8A928200DE398D /* AvailabilityViewController.h */,
+				A29D4CE11A8A928200DE398D /* AvailabilityViewController.m */,
+				A29D4CA81A8A754200DE398D /* RoomListViewController.h */,
+				A29D4CA91A8A754200DE398D /* RoomListViewController.m */,
 				A2FA6D2C1A89396C00018CF7 /* Room.h */,
 				A2FA6D2D1A89396C00018CF7 /* Room.m */,
 				A2FA6D271A89324F00018CF7 /* Guest.h */,
@@ -252,10 +267,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2FA6D261A89324F00018CF7 /* Reservation.m in Sources */,
+				A29D4CE21A8A928200DE398D /* AvailabilityViewController.m in Sources */,
 				A2FA6D291A89324F00018CF7 /* Guest.m in Sources */,
 				A2FA6CFE1A8925D700018CF7 /* CoreDataHotel.xcdatamodeld in Sources */,
+				A29D4CAA1A8A754200DE398D /* RoomListViewController.m in Sources */,
 				A2FA6CFB1A8925D700018CF7 /* AppDelegate.m in Sources */,
 				A2FA6D011A8925D700018CF7 /* ViewController.m in Sources */,
+				A29D4CAD1A8A7B2000DE398D /* AddReservationViewController.m in Sources */,
 				A2FA6D201A89324E00018CF7 /* Hotel.m in Sources */,
 				A2FA6D2E1A89396C00018CF7 /* Room.m in Sources */,
 				A2FA6CF81A8925D700018CF7 /* main.m in Sources */,
@@ -452,6 +470,7 @@
 				A2FA6D1A1A8925D700018CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A2FA6D1B1A8925D700018CF7 /* Build configuration list for PBXNativeTarget "CoreDataHotelTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +479,7 @@
 				A2FA6D1D1A8925D700018CF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
