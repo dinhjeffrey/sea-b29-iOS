@@ -75,7 +75,7 @@
                                     <!--2015-02-10 19:27:28 +0000-->
                                 </date>
                             </datePicker>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I5G-wl-7dT">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I5G-wl-7dT">
                                 <rect key="frame" x="101" y="113" width="399" height="29"/>
                                 <segments>
                                     <segment title="Fancy Estates"/>
@@ -114,7 +114,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3l-PL-bfA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="864"/>
+            <point key="canvasLocation" x="589" y="1324"/>
         </scene>
         <!--Room List View Controller-->
         <scene sceneID="dAo-Jr-8MU">
@@ -139,7 +139,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="IUJ-uu-gcc" kind="show" identifier="SHOW_RESERVATION" id="UVE-Jc-b5c"/>
+                                            <segue destination="inZ-oX-Tge" kind="show" identifier="SHOW_RESERVATION_LIST" id="aR8-Iq-agT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -160,6 +160,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYB-67-Oz8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1066" y="255"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="tGg-VY-bnN">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="inZ-oX-Tge" customClass="ReservationListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FKb-0G-CvQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="6f8-Ee-hmP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fRj-ll-Drc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="hq9-Ja-frH">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RESERVATIONS_CELL" id="VxA-nc-zwu">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VxA-nc-zwu" id="TL4-tG-Pkx">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="hq9-Ja-frH" secondAttribute="trailing" constant="-16" id="Gzb-Ld-PZ4"/>
+                            <constraint firstItem="hq9-Ja-frH" firstAttribute="leading" secondItem="fRj-ll-Drc" secondAttribute="leadingMargin" constant="-16" id="Qo4-CT-ZVn"/>
+                            <constraint firstItem="hq9-Ja-frH" firstAttribute="top" secondItem="FKb-0G-CvQ" secondAttribute="bottom" id="Z0H-hP-H9o"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="hq9-Ja-frH" secondAttribute="bottom" id="riK-N4-pIS"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="9ma-Mj-IHQ">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="tCD-1y-84n">
+                            <connections>
+                                <segue destination="IUJ-uu-gcc" kind="presentation" identifier="ADD_RESERVATION" id="TgW-NK-94F"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="hq9-Ja-frH" id="mgU-CU-UXK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jT5-lC-La1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1793" y="255"/>
         </scene>
         <!--Add Reservation View Controller-->
         <scene sceneID="iqb-Ux-I4g">
@@ -212,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rQ-Sz-SIj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1777" y="252"/>
+            <point key="canvasLocation" x="2433" y="228"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r4F-IJ-aR1">

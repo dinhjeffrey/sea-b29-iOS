@@ -21,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-  AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-  self.context = appDelegate.managedObjectContext;
+//  AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+//  self.context = appDelegate.managedObjectContext;
   
     // Do any additional setup after loading the view.
 }
@@ -37,7 +37,6 @@
   
   NSString *selectedHotel = [self.hotelSegmentControl titleForSegmentAtIndex:self.hotelSegmentControl.selectedSegmentIndex];
   
-  
   //fetch all rooms with hotel name that matches the selected hotel
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.hotel.name MATCHES %@",selectedHotel];
   
@@ -45,7 +44,7 @@
   
   
   NSFetchRequest *reservationFetch = [NSFetchRequest fetchRequestWithEntityName:@"Reservation"];
-  NSPredicate *reservationPredicate = [NSPredicate predicateWithFormat:@"room.hotel.name MATCHES %@ AND startDate >= %@ OR endDate <= %@", selectedHotel,self.startDatePicker.date, self.endDatePicker.date];
+  NSPredicate *reservationPredicate = [NSPredicate predicateWithFormat:@"room.hotel.name MATCHES %@ AND startDate <= %@ AND endDate >= %@", selectedHotel,self.endDatePicker.date, self.startDatePicker.date];
   
   reservationFetch.predicate = reservationPredicate;
   NSError *fetchError;

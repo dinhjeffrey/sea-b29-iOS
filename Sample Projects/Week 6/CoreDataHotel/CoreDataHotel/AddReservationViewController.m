@@ -9,6 +9,7 @@
 #import "AddReservationViewController.h"
 #import "Reservation.h"
 #import "Guest.h"
+#import "HotelService.h"
 
 @interface AddReservationViewController ()
 @property (weak, nonatomic) IBOutlet UIDatePicker *startDatePicker;
@@ -28,26 +29,13 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)bookPressed:(id)sender {
-  Reservation *reservation = [NSEntityDescription insertNewObjectForEntityForName:@"Reservation" inManagedObjectContext:self.selectedRoom.managedObjectContext];
- 
-  reservation.startDate = self.startDatePicker.date;
-  reservation.endDate = self.endDatePicker.date;
-  reservation.room = self.selectedRoom;
-  Guest *guest = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:self.selectedRoom.managedObjectContext];
-  guest.firstName = @"Brad";
-  guest.lastName = @"Johnson";
-  reservation.guest = guest;
   
-  NSLog(@"%lu",(unsigned long)self.selectedRoom.reservations.count);
+  Guest *guest = [NSEntityDescription insertNewObjectForEntityForName:@"Guest" inManagedObjectContext:[[HotelService sharedService] coreDataStack].managedObjectContext];
+     guest.firstName = @"Brad";
+      guest.lastName = @"Johnson";
   
-  NSError *saveError;
-  [self.selectedRoom.managedObjectContext save:&saveError];
-  
-  if (saveError) {
-    NSLog(@" %@",saveError.localizedDescription);
-  }
-  
-  
+                  [[HotelService sharedService] bookReservationForGuest:guest ForRoom:self.selectedRoom startDate:self.startDatePicker.date endDate:self.endDatePicker.date];
+  [self dismissViewControllerAnimated:true completion:nil];
   
 }
 

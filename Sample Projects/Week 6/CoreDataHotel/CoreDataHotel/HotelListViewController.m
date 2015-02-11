@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "Hotel.h"
 #import "RoomListViewController.h"
+#import "HotelService.h"
 
 @interface HotelListViewController () <UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -22,8 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
   self.tableView.dataSource = self;
-  AppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-  NSManagedObjectContext *context = appDelegate.managedObjectContext;
+
+  
 //  NSManagedObjectModel *MOM = context.persistentStoreCoordinator.managedObjectModel;
 //  NSFetchRequest *fetchRequest = [MOM fetchRequestTemplateForName:@"HotelFetch"];
 
@@ -31,7 +32,10 @@
   //you could create a predicate here
   NSError *fetchError;
   
-  NSArray *results = [context executeFetchRequest:fetchRequest error:&fetchError];
+  NSArray *results = [[[HotelService sharedService] coreDataStack].managedObjectContext executeFetchRequest:fetchRequest error:&fetchError];
+  
+  
+//  NSArray *results = [[HotelService sharedService] coreDataStack.managedObjectContext executeFetchRequest:fetchRequest error:&fetchError];
   if (!fetchError) {
     self.hotels = results;
     [self.tableView reloadData];
