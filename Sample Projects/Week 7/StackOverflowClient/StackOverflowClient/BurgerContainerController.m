@@ -21,6 +21,8 @@
 
 @implementation BurgerContainerController
 
+NSInteger const slideRightBuffer = 300;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
   
@@ -56,7 +58,7 @@
   __weak BurgerContainerController *weakSelf = self;
   
   [UIView animateWithDuration:.3 animations:^{
-    weakSelf.topViewController.view.center = CGPointMake(weakSelf.topViewController.view.center.x + 300, weakSelf.topViewController.view.center.y);
+    weakSelf.topViewController.view.center = CGPointMake(weakSelf.topViewController.view.center.x + slideRightBuffer, weakSelf.topViewController.view.center.y);
   } completion:^(BOOL finished) {
     [weakSelf.topViewController.view addGestureRecognizer:weakSelf.tapToClose];
   }];

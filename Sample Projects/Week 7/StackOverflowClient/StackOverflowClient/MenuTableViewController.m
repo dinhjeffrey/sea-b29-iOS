@@ -6,8 +6,11 @@
 //  Copyright (c) 2015 BPJ. All rights reserved.
 //
 
+
+
 #import "MenuTableViewController.h"
 #import "WebOAuthViewController.h"
+#import "Constants.h"
 
 @interface MenuTableViewController ()
 
@@ -15,8 +18,12 @@
 
 @implementation MenuTableViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  //NSLog(@"%@",MyFirstConstant);
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
