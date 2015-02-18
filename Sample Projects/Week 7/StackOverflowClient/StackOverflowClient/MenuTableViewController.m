@@ -7,7 +7,6 @@
 //
 
 
-
 #import "MenuTableViewController.h"
 #import "WebOAuthViewController.h"
 #import "Constants.h"
@@ -46,6 +45,11 @@
     
   }
   
+  
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  [self.delegate menuOptionSelected:indexPath.row];
   
 }
 

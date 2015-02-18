@@ -7,8 +7,10 @@
 //
 
 #import "BurgerContainerController.h"
+#import "MenuTableViewController.h"
+#import "ProfileViewController.h"
 
-@interface BurgerContainerController ()
+@interface BurgerContainerController () <MenuPressedDelegate>
 
 @property (strong,nonatomic) UIViewController *topViewController;
 @property (strong,nonatomic) UIButton *burgerButton;
@@ -16,6 +18,9 @@
 @property (strong,nonatomic) UIPanGestureRecognizer *slideRecognizer;
 
 @property (strong,nonatomic) UINavigationController *searchVC;
+@property (strong,nonatomic) ProfileViewController *profileVC;
+@property (nonatomic) NSInteger selectedRow;
+@property (strong,nonatomic) MenuTableViewController *menuVC;
 
 @end
 
@@ -32,6 +37,7 @@ NSInteger const slideRightBuffer = 300;
   [self.view addSubview:self.searchVC.view];
   [self.searchVC didMoveToParentViewController:self];
   self.topViewController = self.searchVC;
+  self.selectedRow = 0;
   
   UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
   [button setBackgroundImage:[UIImage imageNamed:@"burger"] forState:UIControlStateNormal];
@@ -123,6 +129,75 @@ NSInteger const slideRightBuffer = 300;
     _searchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"SEARCH_VC"];
   }
   return _searchVC;
+}
+
+-(ProfileViewController *)profileVC {
+  if (!_profileVC) {
+    _profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PROFILE_VC"];
+  }
+  return _profileVC;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+  
+  if ([segue.identifier isEqualToString:@"EMBED_MENU"]) {
+    MenuTableViewController *destinationVC = segue.destinationViewController;
+    destinationVC.delegate = self;
+    self.menuVC = destinationVC;
+    
+  }
+}
+
+-(void)switchToViewController:(UIViewController *)destinationVC {
+  
+  __weak BurgerContainerController *weakSelf = self;
+  [UIView animateWithDuration:0.2 animations:^{
+    
+    weakSelf.topViewController.view.frame = CGRectMake(weakSelf.view.frame.size.width, 0, weakSelf.view.frame.size.width, weakSelf.view.frame.size.height);
+  } completion:^(BOOL finished) {
+    
+    destinationVC.view.frame = self.topViewController.view.frame;
+    
+    [self.topViewController.view removeGestureRecognizer:self.slideRecognizer];
+    [self.burgerButton removeFromSuperview];
+    [self.topViewController willMoveToParentViewController:nil];
+    [self.topViewController.view removeFromSuperview];
+    [self.topViewController removeFromParentViewController];
+    
+    self.topViewController = destinationVC;
+    
+    [self addChildViewController:self.topViewController];
+    [self.view addSubview:self.topViewController.view];
+    [self.topViewController didMoveToParentViewController:self];
+    [self.topViewController.view addSubview:self.burgerButton];
+    [self.topViewController.view addGestureRecognizer:self.slideRecognizer];
+    
+    [self closePanel];
+  } ];
+  
+}
+
+-(void)menuOptionSelected:(NSInteger)selectedRow {
+  NSLog(@"%ld",(long)selectedRow);
+  if (self.selectedRow == selectedRow) {
+    [self closePanel];
+  } else {
+    self.selectedRow = selectedRow;
+    UIViewController *destinationVC;
+    switch (selectedRow) {
+      case 0:
+        destinationVC = self.searchVC;
+        break;
+      case 1:
+        destinationVC = self.profileVC;
+        break;
+      case 2:
+        break;
+      default:
+        break;
+    }
+    [self switchToViewController:destinationVC];
+  }
 }
                             
 @end

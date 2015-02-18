@@ -20,7 +20,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5h-98-SD1">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
-                                    <segue destination="rb2-qA-Ph6" kind="embed" id="JUE-D6-mMc"/>
+                                    <segue destination="rb2-qA-Ph6" kind="embed" identifier="EMBED_MENU" id="JUE-D6-mMc"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -197,6 +197,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7vp-Hi-7YO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1915" y="130"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="9qL-a9-CuL">
+            <objects>
+                <viewController storyboardIdentifier="PROFILE_VC" id="ME9-JX-Z2c" customClass="ProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IoF-oG-nzR"/>
+                        <viewControllerLayoutGuide type="bottom" id="eCn-wR-vOj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xCy-mD-OxF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.25142978890000001" blue="0.213605288" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9h-h4-S8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1595" y="896"/>
         </scene>
     </scenes>
 </document>
