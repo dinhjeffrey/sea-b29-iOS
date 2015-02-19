@@ -23,6 +23,7 @@
 		A2783C7D1A93D1230052E305 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = A2783C7C1A93D1230052E305 /* Constants.m */; };
 		A2978ADF1A9271EC0067AC8D /* MenuTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2978ADE1A9271EC0067AC8D /* MenuTableViewController.m */; };
 		A2978AE21A92724F0067AC8D /* WebOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2978AE11A92724F0067AC8D /* WebOAuthViewController.m */; };
+		A2D3C1931A965D58006B3707 /* BPJViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2D3C1921A965D58006B3707 /* BPJViewController.m */; };
 		A2DA18E61A9506FC00A15B3B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA18E51A9506FC00A15B3B /* ProfileViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,8 @@
 		A2978ADE1A9271EC0067AC8D /* MenuTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewController.m; sourceTree = "<group>"; };
 		A2978AE01A92724F0067AC8D /* WebOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebOAuthViewController.h; sourceTree = "<group>"; };
 		A2978AE11A92724F0067AC8D /* WebOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebOAuthViewController.m; sourceTree = "<group>"; };
+		A2D3C1911A965D58006B3707 /* BPJViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPJViewController.h; sourceTree = "<group>"; };
+		A2D3C1921A965D58006B3707 /* BPJViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPJViewController.m; sourceTree = "<group>"; };
 		A2DA18E31A95026600A15B3B /* MenuPressedDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuPressedDelegate.h; path = ../MenuPressedDelegate.h; sourceTree = "<group>"; };
 		A2DA18E41A9506FC00A15B3B /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		A2DA18E51A9506FC00A15B3B /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				A2978ADE1A9271EC0067AC8D /* MenuTableViewController.m */,
 				A2783C721A93BE600052E305 /* SearchQuestionsViewController.h */,
 				A2783C731A93BE600052E305 /* SearchQuestionsViewController.m */,
+				A2D3C1911A965D58006B3707 /* BPJViewController.h */,
+				A2D3C1921A965D58006B3707 /* BPJViewController.m */,
 				A2783C6F1A93BCD50052E305 /* StackOverflowService.h */,
 				A2783C701A93BCD50052E305 /* StackOverflowService.m */,
 				A2783C7B1A93D0B70052E305 /* Constants.h */,
@@ -280,6 +285,7 @@
 				A2783C771A93C4100052E305 /* Question.m in Sources */,
 				A2DA18E61A9506FC00A15B3B /* ProfileViewController.m in Sources */,
 				A2783C741A93BE600052E305 /* SearchQuestionsViewController.m in Sources */,
+				A2D3C1931A965D58006B3707 /* BPJViewController.m in Sources */,
 				A20EEE191A925E5700F9F34F /* StackOverflowClient.xcdatamodeld in Sources */,
 				A2783C7D1A93D1230052E305 /* Constants.m in Sources */,
 			);

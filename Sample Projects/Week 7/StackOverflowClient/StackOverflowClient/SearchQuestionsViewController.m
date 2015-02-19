@@ -27,6 +27,7 @@
   self.searchBar.delegate = self;
   self.tableView.dataSource = self;
   self.tableView.rowHeight = UITableViewAutomaticDimension;
+  self.tableView.pagingEnabled = true;
     // Do any additional setup after loading the view.
 }
 

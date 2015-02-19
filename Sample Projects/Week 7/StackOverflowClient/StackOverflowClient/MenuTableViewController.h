@@ -9,8 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "MenuPressedDelegate.h"
 
+typedef enum {
+  Hello,
+  Goodbye
+} greeting;
+
+typedef NSString word;
+typedef void (^SOCompletionHandler)(NSArray *, NSError *);
 @interface MenuTableViewController : UITableViewController
 
 @property (weak,nonatomic) id<MenuPressedDelegate> delegate;
+
+-(void)fetchQuestionsForSearchTerm:(NSString *)searchTerm withCompletionHandler:(SOCompletionHandler)completion;
+
 
 @end

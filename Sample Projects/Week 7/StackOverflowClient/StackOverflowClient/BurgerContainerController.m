@@ -31,6 +31,11 @@ NSInteger const slideRightBuffer = 300;
 - (void)viewDidLoad {
     [super viewDidLoad];
   
+  NSArray *things = [NSArray arrayWithObjects:@"Brad",@"Johnson", nil];
+  
+ // NSString *name = things[5];
+  
+  
 
   [self addChildViewController:self.searchVC];
   self.searchVC.view.frame = self.view.frame;

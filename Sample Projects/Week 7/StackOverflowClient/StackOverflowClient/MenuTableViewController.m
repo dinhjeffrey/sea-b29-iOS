@@ -21,6 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+greeting myGreeting = Hello;
+  
+//  Style myStyle = cool;
+//  Style yourStyle = stupid;
+//  Style ourStyle = myStyle + yourStyle;
   
   //NSLog(@"%@",MyFirstConstant);
     
@@ -29,6 +34,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)doSomethingWithGreeting:(greeting)myGreeting {
+  
 }
 
 -(void)viewDidAppear:(BOOL)animated {
